@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Price List</title>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div
+      id="header"
+      class="flex flex-row justify-between px-10 md:px-20 py-4 bg-black text-gray-300 items-center"
+    >
+      <div class="font-bold">Netflix Price List</div>
+      <div>User: Kevin</div>
+    </div>
+    <main class="bg-gray-100 py-12 px-12 md:px-20 flex-grow">
+
+      <div class="flex md:flex-row flex-col justify-around gap-y-8 gap-x-8">
+
+        <div class="text-white py-5 text-center bg-black px-10 rounded-md">
+          <div class="font-semibold text-3xl">Basic Plan</div>
+
+          <div class="flex flex-col items-center gap-y-5 mt-6">
+            <div>1 screen</div>
+            <div>480p</div>
+            <div class="text-xl hover:underline">R 50.00</div>
+          </div>
+        </div>
+
+        <div class="text-white py-5 text-center bg-black px-10 rounded-md">
+          <div class="font-semibold text-3xl">Medium Plan</div>
+
+          <div class="flex flex-col items-center gap-y-5 mt-6">
+            <div>2 screen</div>
+            <div>720p</div>
+            <div class="text-xl hover:underline">R 80.00</div>
+          </div>
+        </div>
+
+        <div class="text-white py-5 text-center bg-black px-10 rounded-md">
+          <div class="font-semibold text-3xl">Premium Plan</div>
+
+          <div class="flex flex-col items-center gap-y-5 mt-6">
+            <div>4 screen</div>
+            <div>1080p HD</div>
+            <div class="text-xl hover:underline">R 100.00</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="bg-black w-full py-5 text-gray-500 text-center text-sm">
+      <p>
+        Copyright 2023 | Made with <span class="text-red-500">&hearts;</span> by
+        Kevin Misigaro
+      </p>
+    </div>
+  </body>
+</html>

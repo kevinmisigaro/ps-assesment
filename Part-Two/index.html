@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Book List</title>
+  </head>
+  <body>
+    <div class="px-20 py-10">
+      <div class="text-2xl mb-10 text-center">
+        Book List
+      </div>
+      <div class="mb-10 flex flex-row gap-x-3">
+        <button
+          class="text-white bg-black px-4 py-2"
+          onclick="sortBooks('title', 'asc')"
+        >
+          Sort by Title (Ascending)
+        </button>
+        <button
+          class="text-white bg-black px-4 py-2"
+          onclick="sortBooks('title', 'desc')"
+        >
+          Sort by Title (Descending)
+        </button>
+        <button
+          class="text-white bg-black px-4 py-2"
+          onclick="sortBooks('author', 'asc')"
+        >
+          Sort by Author (Ascending)
+        </button>
+        <button
+          class="text-white bg-black px-4 py-2"
+          onclick="sortBooks('author', 'desc')"
+        >
+          Sort by Author (Descending)
+        </button>
+      </div>
+
+      <input
+        class="my-4 border border-gray-500 px-10 py-2"
+        type="text"
+        id="searchInput"
+        oninput="searchBooks()"
+        placeholder="Search by title or author"
+      />
+
+      <ul id="book-list"></ul>
+
+      <script>
+        // here is the list of books
+         let books = [
+         { title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+          { title: "To Kill a Mockingbird", author: "Harper Lee" },
+          { title: "Harry Potter and the Goblet of Fire", author: "J.K Rowling" },
+        ];
+
+        //this functions allows us to display the books
+        function renderBooks() {
+            const bookList = document.getElementById('book-list');
+            bookList.innerHTML = '';
+
+            //books are then added to the DOM as list items with <li> element
+            books.forEach(book => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${book.title} by ${book.author}`;
+                bookList.appendChild(listItem);
+            });
+        }
+
+        // this function allows us to search the books
+        function searchBooks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filteredBooks = books.filter(book => {
+                return book.title.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm);
+            });
+
+            const bookList = document.getElementById('book-list');
+            bookList.innerHTML = '';
+
+            filteredBooks.forEach(book => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${book.title} by ${book.author}`;
+                bookList.appendChild(listItem);
+            });
+        }
+
+        // this allows us to sort through the books
+        function sortBooks(property, order) {
+            books.sort((a, b) => {
+                const valueA = a[property].toLowerCase();
+                const valueB = b[property].toLowerCase();
+
+                if (order === 'asc') {
+                    return valueA.localeCompare(valueB);
+                } else if (order === 'desc') {
+                    return valueB.localeCompare(valueA);
+                }
+            });
+
+            renderBooks();
+        }
+
+        renderBooks();
+    </script>
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindromic Substring</title>
+  </head>
+  <body>
+    <script>
+      function findTheLongestPalindromicSubString(str) {
+        
+        // Function to check if a substring is a palindrome
+        function isPalindrome(substring) {
+          return substring === substring.split("").reverse().join("");
+        }
+
+        // initialize longest Palindrone as an empty string
+        let longestPalindrome = "";
+
+        // Iterate through the string
+        for (let i = 0; i < str.length; i++) {
+          for (let j = i + 1; j <= str.length; j++) {
+            const substring = str.slice(i, j);
+
+            if (
+              isPalindrome(substring) &&
+              substring.length > longestPalindrome.length
+            ) {
+              longestPalindrome = substring;
+            }
+          }
+        }
+
+        //return the result
+        return longestPalindrome;
+      }
+    </script>
+  </body>
+</html>
